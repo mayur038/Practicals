@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        h1
+        {
+            text-align: center;
+        }
+        .calculator {
+            width: 250px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .calculator input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .calculator input[type="button"]:hover {
+            color: tomato;
+        }
+
+        .result {
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .op input[type="button"]{
+           margin: 1px 4px;
+            background-color: green;
+            color: white;
+        }
+        .op 
+        {
+            text-align: center  ;
+            margin: 5% auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="calculator">
+       
+        <div class="result" id="result">0</div>
+        <input type="button" value="7" onclick="appendToExpression('7')">
+        <input type="button" value="8" onclick="appendToExpression('8')">
+        <input type="button" value="9" onclick="appendToExpression('9')">
+       
+
+        <input type="button" value="4" onclick="appendToExpression('4')">
+        <input type="button" value="5" onclick="appendToExpression('5')">
+        <input type="button" value="6" onclick="appendToExpression('6')">
+       
+
+        <input type="button" value="1" onclick="appendToExpression('1')">
+        <input type="button" value="2" onclick="appendToExpression('2')">
+        <input type="button" value="3" onclick="appendToExpression('3')">
+        
+
+        <input type="button" value="0" onclick="appendToExpression('0')">
+        <input type="button" value="." onclick="appendToExpression('.')">
+        <input type="button" value="C" onclick="clearExpression()">
+        <input type="button"  style="margin: 0%;color: white;background-color: black;" value="=" onclick="calculate()">
+
+        <div class="op">
+       
+
+        <input type="button" value="/" onclick="appendToExpression('/')">
+        <input type="button" value="*" onclick="appendToExpression('*')">
+        <input type="button" value="-" onclick="appendToExpression('-')">
+        <input type="button" value="+" onclick="appendToExpression('+')">
+       
+        </div>
+       
+    </div>
+
+    <script>
+        function appendToExpression(value) {
+            document.getElementById('result').innerText += value;
+        }
+
+        function clearExpression() {
+            document.getElementById('result').innerText = '';
+        }
+
+        function calculate() {
+            var expression = document.getElementById('result').innerText;
+            var result = eval(expression);
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>

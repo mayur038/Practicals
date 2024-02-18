@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body
+        {
+            text-align: center;
+        }
+h2
+{
+    text-align: center;
+}
+input
+{
+    width: 70%;
+    margin: 1% 15%;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(7, 7, 7, 0.184);
+}
+    </style>
+</head>
+<body>
+    <h2>Visual Search</h2>
+    <input type="text" id="searchInput" placeholder="Search by name...">
+    <div id="searchResult"></div>
+    <img src="../img/4.jpg" alt="" srcset="">
+    <script>
+        $(document).ready(function(){
+            $('#searchInput').keyup(function(){
+                var query = $(this).val();
+                if(query != ''){
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'post',
+                        data: {query: query},
+                        success: function(data){
+                            $('#searchResult').html(data);
+                        }
+                    });
+                } else {
+                    $('#searchResult').html('');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

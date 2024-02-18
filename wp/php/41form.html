@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .ss label
+        {
+            margin: 5px 10px;
+            display: inline;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+     
+    <div class="container">
+        <h2>User Registration Form</h2>
+        <form action="41.php" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+           <br> <label for="gender">Gender:</label>
+
+            <div class="ss">
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>    
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Mobile No.:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+            
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">Select State</option>
+                <option value="NY">New York</option>
+                <option value="CA">California</option>
+                <option value="TX">Texas</option>
+                <option value="FL">Florida</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <label for="education">Education:</label>
+            <select id="education" name="education" required>
+                <option value="">Select Education</option>
+                <option value="high_school">High School</option>
+                <option value="bachelors">Bachelor's Degree</option>
+                <option value="masters">Master's Degree</option>
+                <option value="phd">PhD</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            
+            <input type="submit" onclick="validateForm()" name = "submit" value="Register">
+        </form>
+    </div>
+    <div id="displayInfo" style="text-align: center;height: auto;"></div>
+   
+
+    
+    
+</body>
+</html>
